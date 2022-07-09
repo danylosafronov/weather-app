@@ -1,0 +1,11 @@
+//
+//  Configuration.xcconfig
+//  Weather
+//
+//  Created by Danylo Safronov on 09.07.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY =

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Forecast" representedClassName="ForecastMO" syncable="YES" codeGenerationType="class">
+        <attribute name="condition" attributeType="String"/>
+        <attribute name="maxTemperature" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="minTemperature" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temperature" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="forecasts" maxCount="1" deletionRule="Cascade" destinationEntity="LocationForecasts" inverseName="forecasts" inverseEntity="LocationForecasts"/>
+    </entity>
+    <entity name="Location" representedClassName="LocationMO" syncable="YES" codeGenerationType="class">
+        <attribute name="title" attributeType="String"/>
+        <relationship name="forecasts" maxCount="1" deletionRule="Cascade" destinationEntity="LocationForecasts" inverseName="location" inverseEntity="LocationForecasts"/>
+    </entity>
+    <entity name="LocationForecasts" representedClassName="LocationForecastsMO" syncable="YES" codeGenerationType="class">
+        <relationship name="forecasts" toMany="YES" deletionRule="Cascade" destinationEntity="Forecast" inverseName="forecasts" inverseEntity="Forecast"/>
+        <relationship name="location" maxCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="forecasts" inverseEntity="Location"/>
+    </entity>
+    <elements>
+        <element name="LocationForecasts" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="Forecast" positionX="-54" positionY="-9" width="128" height="14"/>
+        <element name="Location" positionX="-36" positionY="9" width="128" height="14"/>
+    </elements>
+</model>
