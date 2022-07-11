@@ -9,10 +9,11 @@ import Foundation
 
 struct DefaultResolveDailyLocationForecastsUseCase: ResolveDailyLocationForecastsUseCase {
     func invoke(count: Int, from locationForecasts: LocationForecasts) -> LocationForecasts? {
+        let sortedForecasts = locationForecasts.forecasts.sorted { $0.timestamp < $1.timestamp }
         var date = Date()
         var forecasts: [Forecast] = []
         
-        for forecast in locationForecasts.forecasts {
+        for forecast in sortedForecasts {
             if forecast.timestamp > date {
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
                 forecasts += [forecast]

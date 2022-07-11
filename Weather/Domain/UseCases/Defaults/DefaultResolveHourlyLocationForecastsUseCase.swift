@@ -9,8 +9,10 @@ import Foundation
 
 struct DefaultResolveHourlyLocationForecastsUseCase: ResolveHourlyLocationForecastsUseCase {
     func invoke(count: Int, from locationForecasts: LocationForecasts) -> LocationForecasts? {
+        let sortedForecasts = locationForecasts.forecasts.sorted { $0.timestamp < $1.timestamp }
         var count = count
-        if locationForecasts.forecasts.count < count {
+        
+        if sortedForecasts.count < count {
             count = locationForecasts.forecasts.count
         }
         
@@ -18,7 +20,7 @@ struct DefaultResolveHourlyLocationForecastsUseCase: ResolveHourlyLocationForeca
         return LocationForecasts(
             id: UUID(),
             location: locationForecasts.location,
-            forecasts: Array(locationForecasts.forecasts[...index])
+            forecasts: Array(sortedForecasts[...index])
         )
     }
 }
