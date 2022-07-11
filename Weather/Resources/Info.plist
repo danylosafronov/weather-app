@@ -2,12 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to provide you with a weather forecast.</string>
 	<key>API_KEY</key>
 	<string>${API_KEY}</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We use your location to provide you with a weather forecast.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -25,5 +21,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>${PRODUCT_NAME} wants to receive access to your location.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>${PRODUCT_NAME} wants to receive access to your location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>${PRODUCT_NAME} wants to receive access to your location.</string>
 </dict>
 </plist>

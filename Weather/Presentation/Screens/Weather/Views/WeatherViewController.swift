@@ -41,12 +41,12 @@ final class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         
         viewModel.load()
-        locationManager.startUpdatingLocation()
+        startUpdatingLocation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        locationManager.stopUpdatingLocation()
+        stopUpdatingLocation()
     }
     
     // MARK: - Configuration
@@ -94,15 +94,17 @@ final class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         )
     }
     
-    // MARK: - CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(status.rawValue)
+    private func locationAuthorizationStatusDidChange(_ status: CLAuthorizationStatus) {
+        if status == .denied {
+            locationAuthorizationStatusDidDenied()
+        }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        
+    private func locationAuthorizationStatusDidDenied() {
+        showLocationPermissionRequiredAlert()
+    }
+    
+    private func locationDidChange(_ location: CLLocation) {
         viewModel.load(
             coordinates: .init(
                 latitude: location.coordinate.latitude,
@@ -111,7 +113,48 @@ final class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         )
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+    // MARK: - Logic
+    
+    private func showLocationPermissionRequiredAlert() {
+        let alert = makeLocationPermissionRequiredAlert()
+        present(alert, animated: true)
+    }
+    
+    private func makeLocationPermissionRequiredAlert() -> UIAlertController {
+        let alertController = UIAlertController(
+            title: "Location Permission Required",
+            message: "Please enable location permissions in settings.",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let openSettingsAction = UIAlertAction(title: "Settings", style: .default) { _ in
+            guard let url = URL(string:UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(url)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(openSettingsAction)
+        
+        return alertController
+    }
+    
+    private func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    private func stopUpdatingLocation() {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    // MARK: - CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationAuthorizationStatusDidChange(status)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        locationDidChange(location)
     }
 }

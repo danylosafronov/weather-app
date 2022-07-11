@@ -38,6 +38,7 @@ import Foundation
         do {
             let (locationForecast, hourlyForecast, dailyForecast) = try await getForecasts.invoke(for: coordinates)
 
+            guard !Task.isCancelled else { return }
             self.locationForecast = locationForecast
             self.hourlyForecast = hourlyForecast
             self.dailyForecast = dailyForecast
