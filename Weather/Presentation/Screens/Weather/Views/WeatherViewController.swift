@@ -140,11 +140,11 @@ final class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func startUpdatingLocation() {
-        locationManager.startUpdatingLocation()
+        locationManager.startMonitoringSignificantLocationChanges()
     }
     
     private func stopUpdatingLocation() {
-        locationManager.stopUpdatingLocation()
+        locationManager.stopMonitoringSignificantLocationChanges()
     }
     
     // MARK: - CLLocationManagerDelegate
