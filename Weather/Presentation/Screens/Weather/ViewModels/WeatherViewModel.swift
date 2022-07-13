@@ -12,12 +12,7 @@ import Foundation
     @Published private (set) var hourlyForecast: LocationForecasts? = nil
     @Published private (set) var dailyForecast: LocationForecasts? = nil
     
-    private var task: Task<Void, Never>? {
-        willSet {
-            cancelTask(task)
-        }
-    }
-    
+    private var task: Task<Void, Error>?
     private let getForecasts: GetForecastsUseCase
     
     init(getForecasts: GetForecastsUseCase) {
@@ -25,11 +20,11 @@ import Foundation
     }
     
     public func load(coordinates: Coordinates? = nil) {
+        task?.cancel()
         task = Task { [weak self] in
             guard let self = self else { return }
             
             await self.loadAsync(coordinates: coordinates)
-            
             self.task = nil
         }
     }
@@ -39,17 +34,12 @@ import Foundation
             let (locationForecast, hourlyForecast, dailyForecast) = try await getForecasts.invoke(for: coordinates)
 
             guard !Task.isCancelled else { return }
+
             self.locationForecast = locationForecast
             self.hourlyForecast = hourlyForecast
             self.dailyForecast = dailyForecast
         } catch {
             print(error)
-        }
-    }
-    
-    private func cancelTask<Success, Failure>(_ task: Task<Success, Failure>?) {
-        if let task = task, !task.isCancelled {
-            task.cancel()
         }
     }
 }
