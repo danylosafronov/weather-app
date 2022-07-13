@@ -70,19 +70,22 @@ final class DayForecastView: UIView {
         hourLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
         hourLabel.numberOfLines = 1
         hourLabel.textColor = UIColor(named: "textColor")
+        
+        NSLayoutConstraint.activate([
+            hourLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.1)
+        ])
     }
     
     private func configureWeatherImageView() {
         contentStackView.addArrangedSubview(weatherImageView)
         
         weatherImageView.clipsToBounds = true
-        weatherImageView.contentMode = .scaleAspectFill
+        weatherImageView.contentMode = .scaleAspectFit
         weatherImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-
             weatherImageView.heightAnchor.constraint(equalTo: contentLayoutGuide.heightAnchor, multiplier: 0.5),
-            weatherImageView.widthAnchor.constraint(equalTo: weatherImageView.heightAnchor),
+            weatherImageView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.2),
         ])
     }
     
@@ -92,6 +95,10 @@ final class DayForecastView: UIView {
         temperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
         temperatureLabel.numberOfLines = 1
         temperatureLabel.textColor = UIColor(named: "textColor")
+        
+        NSLayoutConstraint.activate([
+            temperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.2)
+        ])
     }
     
     private func configureHighestTemperatureLabelLabel() {
@@ -100,6 +107,10 @@ final class DayForecastView: UIView {
         highestTemperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
         highestTemperatureLabel.numberOfLines = 1
         highestTemperatureLabel.textColor = UIColor(named: "textColor")
+        
+        NSLayoutConstraint.activate([
+            highestTemperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.25)
+        ])
     }
     
     private func configureLowestTemperatureLabelLabel() {
@@ -108,6 +119,10 @@ final class DayForecastView: UIView {
         lowestTemperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
         lowestTemperatureLabel.numberOfLines = 1
         lowestTemperatureLabel.textColor = UIColor(named: "textColor")
+        
+        NSLayoutConstraint.activate([
+            lowestTemperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.25)
+        ])
     }
     
     // MARK: - Actions
