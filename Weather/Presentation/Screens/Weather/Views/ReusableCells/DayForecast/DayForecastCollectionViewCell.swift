@@ -19,10 +19,10 @@ final class DayForecastCollectionViewCell: WeatherCollectionViewCell<DayForecast
     // MARK: - Actions
     
     func configure(forecast: Forecast?) {
-        let day = resolveDay(of: forecast?.timestamp ?? Date())
-        let temperature = TemperatureProvider.format(for: forecast?.temperature, in: .celsius)
-        let highestTemperature = TemperatureProvider.format(for: forecast?.maxTemperature, in: .celsius)
-        let lowestTemperature = TemperatureProvider.format(for: forecast?.minTemperature, in: .celsius)
+        let day = TimestampFormatter.format(forecast?.timestamp ?? Date(), to: .day)
+        let temperature = TemperatureFormatter.format(for: forecast?.temperature, in: .celsius)
+        let highestTemperature = TemperatureFormatter.format(for: forecast?.maxTemperature, in: .celsius)
+        let lowestTemperature = TemperatureFormatter.format(for: forecast?.minTemperature, in: .celsius)
         let image = ForecaseConditionIconProvider.make(by: forecast?.condition)
         
         nestedView.configureHoutLabelText("\(day)")
@@ -30,14 +30,5 @@ final class DayForecastCollectionViewCell: WeatherCollectionViewCell<DayForecast
         nestedView.configureTemperatureLabel("\(temperature)")
         nestedView.configureHighestTemperatureLabelText("H: \(highestTemperature)")
         nestedView.configureLowestTemperatureLabelText("L: \(lowestTemperature)")
-    }
-    
-    // MARK: - Logic
-    
-    private func resolveDay(of date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E"
-        
-        return dateFormatter.string(from: date).capitalized
     }
 }

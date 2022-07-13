@@ -19,8 +19,8 @@ final class HourForecastCollectionViewCell: WeatherCollectionViewCell<HourForeca
     // MARK: - Actions
     
     func configure(for forecast: Forecast?) {
-        let hour = Calendar.current.component(.hour, from: forecast?.timestamp ?? Date())
-        let temperature = TemperatureProvider.format(for: forecast?.temperature, in: .celsius)
+        let hour = TimestampFormatter.format(forecast?.timestamp ?? Date(), to: .hour)
+        let temperature = TemperatureFormatter.format(for: forecast?.temperature, in: .celsius)
         let image = ForecaseConditionIconProvider.make(by: forecast?.condition)
         
         nestedView.configureHoutLabelText("\(hour)")

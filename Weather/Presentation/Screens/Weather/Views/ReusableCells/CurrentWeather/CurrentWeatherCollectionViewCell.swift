@@ -20,9 +20,9 @@ final class CurrentWeatherCollectionViewCell: WeatherCollectionViewCell<CurrentW
     // MARK: - Actions
     
     func configure(for locationForecasts: LocationForecasts?) {
-        let temperature = TemperatureProvider.format(for: locationForecasts?.forecasts.first?.temperature, in: .celsius)
-        let highestTemperature = TemperatureProvider.format(for: locationForecasts?.forecasts.first?.maxTemperature, in: .celsius)
-        let lowestTemperature = TemperatureProvider.format(for: locationForecasts?.forecasts.first?.minTemperature, in: .celsius)
+        let temperature = TemperatureFormatter.format(for: locationForecasts?.forecasts.first?.temperature, in: .celsius)
+        let highestTemperature = TemperatureFormatter.format(for: locationForecasts?.forecasts.first?.maxTemperature, in: .celsius)
+        let lowestTemperature = TemperatureFormatter.format(for: locationForecasts?.forecasts.first?.minTemperature, in: .celsius)
         
         nestedView.configureCurrentLocationLabelText(locationForecasts?.location.title)
         nestedView.configureCurrentWeatherLabelText(locationForecasts?.forecasts.first?.title)

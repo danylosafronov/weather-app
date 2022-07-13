@@ -1,5 +1,5 @@
 //
-//  TemperatureProvider.swift
+//  TemperatureFormatter.swift
 //  Weather
 //
 //  Created by Danylo Safronov on 08.07.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TemperatureProvider {
+struct TemperatureFormatter {
     static func format(for value: Float?, in unit: UnitTemperature) -> String {
         var symbol = unit.symbol
         if unit == .celsius {
