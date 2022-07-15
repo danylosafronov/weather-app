@@ -60,15 +60,16 @@ final class CurrentWeatherView: UIView {
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            contentStackView.centerXAnchor.constraint(equalTo: contentLayoutGuide.centerXAnchor),
             contentStackView.centerYAnchor.constraint(equalTo: contentLayoutGuide.centerYAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
         ])
     }
     
     private func configureCurrentLocationLabel() {
         contentStackView.addArrangedSubview(currentLocationLabel)
         
-        currentLocationLabel.font = .systemFont(ofSize: 24.0, weight: .medium)
+        currentLocationLabel.font = .systemFont(ofSize: 26.0, weight: .medium)
         currentLocationLabel.numberOfLines = 1
         currentLocationLabel.textColor = UIColor(named: "textColor")
     }
@@ -76,7 +77,7 @@ final class CurrentWeatherView: UIView {
     private func configureCurrentTemperatureLabel() {
         contentStackView.addArrangedSubview(currentTemperatureLabel)
         
-        currentTemperatureLabel.font = .systemFont(ofSize: 48.0, weight: .medium)
+        currentTemperatureLabel.font = .systemFont(ofSize: 72.0, weight: .light)
         currentTemperatureLabel.numberOfLines = 1
         currentTemperatureLabel.textColor = UIColor(named: "textColor")
     }
@@ -84,7 +85,7 @@ final class CurrentWeatherView: UIView {
     private func configureCurrentWeatherLabel() {
         contentStackView.addArrangedSubview(currentWeatherLabel)
         
-        currentWeatherLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
+        currentWeatherLabel.font = .systemFont(ofSize: 24.0, weight: .medium)
         currentWeatherLabel.numberOfLines = 1
         currentWeatherLabel.textColor = UIColor(named: "textColor")
     }
@@ -101,7 +102,7 @@ final class CurrentWeatherView: UIView {
     private func configureHighestTemperatureLabel() {
         extremumContentStackView.addArrangedSubview(highestTemperatureLabel)
         
-        highestTemperatureLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
+        highestTemperatureLabel.font = .systemFont(ofSize: 24.0, weight: .medium)
         highestTemperatureLabel.numberOfLines = 1
         highestTemperatureLabel.textColor = UIColor(named: "textColor")
     }
@@ -109,7 +110,7 @@ final class CurrentWeatherView: UIView {
     private func configureLowestTemperatureLabel() {
         extremumContentStackView.addArrangedSubview(lowestTemperatureLabel)
         
-        lowestTemperatureLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
+        lowestTemperatureLabel.font = .systemFont(ofSize: 24.0, weight: .medium)
         lowestTemperatureLabel.numberOfLines = 1
         lowestTemperatureLabel.textColor = UIColor(named: "textColor")
     }

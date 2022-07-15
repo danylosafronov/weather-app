@@ -51,7 +51,7 @@ final class WeatherSectionHeaderView: UIView {
     private func configureTitleLabel() {
         addSubview(titleLabel)
         
-        titleLabel.font = .systemFont(ofSize: 14.0, weight: .medium)
+        titleLabel.font = .systemFont(ofSize: 16.0, weight: .medium)
         titleLabel.textColor = UIColor(named: "textColor")
         titleLabel.numberOfLines = 1
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

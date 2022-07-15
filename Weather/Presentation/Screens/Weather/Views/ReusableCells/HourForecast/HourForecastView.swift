@@ -62,7 +62,7 @@ final class HourForecastView: UIView {
     private func configureHourLabel() {
         contentStackView.addArrangedSubview(hourLabel)
         
-        hourLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+        hourLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         hourLabel.numberOfLines = 1
         hourLabel.textColor = UIColor(named: "textColor")
     }
@@ -83,7 +83,7 @@ final class HourForecastView: UIView {
     private func configureTemperatureLabel() {
         contentStackView.addArrangedSubview(temperatureLabel)
         
-        temperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+        temperatureLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         temperatureLabel.numberOfLines = 1
         temperatureLabel.textColor = UIColor(named: "textColor")
     }

@@ -51,7 +51,7 @@ final class DayForecastView: UIView {
     private func configureContentStackView() {
         addSubview(contentStackView)
         
-        contentStackView.spacing = 8.0
+        contentStackView.spacing = 4.0
         contentStackView.axis = .horizontal
         contentStackView.distribution = .equalSpacing
         contentStackView.alignment = .leading
@@ -67,7 +67,7 @@ final class DayForecastView: UIView {
     private func configureHourLabel() {
         contentStackView.addArrangedSubview(hourLabel)
         
-        hourLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+        hourLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         hourLabel.numberOfLines = 1
         hourLabel.textColor = UIColor(named: "textColor")
         
@@ -84,15 +84,15 @@ final class DayForecastView: UIView {
         weatherImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            weatherImageView.heightAnchor.constraint(equalTo: contentLayoutGuide.heightAnchor, multiplier: 0.5),
-            weatherImageView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.2),
+            weatherImageView.heightAnchor.constraint(equalTo: contentStackView.heightAnchor, multiplier: 0.5),
+            weatherImageView.widthAnchor.constraint(greaterThanOrEqualTo: contentStackView.widthAnchor, multiplier: 0.15),
         ])
     }
     
     private func configureTemperatureLabel() {
         contentStackView.addArrangedSubview(temperatureLabel)
         
-        temperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+        temperatureLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         temperatureLabel.numberOfLines = 1
         temperatureLabel.textColor = UIColor(named: "textColor")
         
@@ -104,24 +104,24 @@ final class DayForecastView: UIView {
     private func configureHighestTemperatureLabelLabel() {
         contentStackView.addArrangedSubview(highestTemperatureLabel)
         
-        highestTemperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+        highestTemperatureLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         highestTemperatureLabel.numberOfLines = 1
         highestTemperatureLabel.textColor = UIColor(named: "textColor")
         
         NSLayoutConstraint.activate([
-            highestTemperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.25)
+            highestTemperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.225)
         ])
     }
     
     private func configureLowestTemperatureLabelLabel() {
         contentStackView.addArrangedSubview(lowestTemperatureLabel)
         
-        lowestTemperatureLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+        lowestTemperatureLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         lowestTemperatureLabel.numberOfLines = 1
         lowestTemperatureLabel.textColor = UIColor(named: "textColor")
         
         NSLayoutConstraint.activate([
-            lowestTemperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.25)
+            lowestTemperatureLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.225)
         ])
     }
     

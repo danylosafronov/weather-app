@@ -15,8 +15,8 @@ struct TemperatureFormatter {
         }
         
         guard var value = value else { return "" }
-        value = round(value * 10) / 10
+        value = value.rounded(.towardZero)
         
-        return "\(value)\(symbol)"
+        return String(format: "%.0f%@", value, symbol)
     }
 }

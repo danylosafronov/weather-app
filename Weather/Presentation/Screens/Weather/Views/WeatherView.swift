@@ -71,6 +71,7 @@ final class WeatherView: UIView {
         collectionView.register(HourlyForecastCollectionViewCell.self)
         collectionView.register(DailyForecastCollectionViewCell.self)
         collectionView.register(WeatherSectionHeaderReusableView.self, of: ElementKind.sectionHeader)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -127,7 +128,7 @@ final class WeatherView: UIView {
         let spacing = 16.0
         
         switch section {
-        case .current: return makeCollectionViewSectionLayout(spacing: spacing, columnCount: 1, groupHeight: 200.0)
+        case .current: return makeCollectionViewSectionLayout(spacing: spacing, columnCount: 1, groupHeight: 300.0)
         case .hourly, .daily:
             let height = section == .hourly ? 125.0 : 325.0
             let section = makeCollectionViewSectionLayout(spacing: spacing, columnCount: 1, groupHeight: height)
