@@ -21,11 +21,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>${PRODUCT_NAME} wants to receive access to your location.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>${PRODUCT_NAME} wants to receive access to your location.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>${PRODUCT_NAME} wants to receive access to your location.</string>
 </dict>
 </plist>
