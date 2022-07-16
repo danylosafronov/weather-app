@@ -10,7 +10,7 @@ import Foundation
 struct LocationForecasts: Identifiable {
     let id: UUID
     let location: Location
-    let forecasts: [Forecast]
+    let forecasts: Forecasts
 }
 
 extension LocationForecasts: Hashable {

@@ -18,9 +18,10 @@ struct DefaultGetForecastsUseCase: GetForecastsUseCase {
             return (nil, nil, nil)
         }
         
-        let currentForecasts = resolveCurrentLocationForecastsUseCase.invoke(from: forecasts)
+        let currentDate = Date()
+        let currentForecasts = resolveCurrentLocationForecastsUseCase.invoke(from: forecasts, forDay: currentDate)
         let hourlyLocationForecasts = resolveHourlyLocationForecastsUseCase.invoke(count: 8, from: forecasts)
-        let dailyLocationForecasts = resolveDailyLocationForecastsUseCase.invoke(count: 5, from: forecasts)
+        let dailyLocationForecasts = resolveDailyLocationForecastsUseCase.invoke(count: 5, from: forecasts, fromDate: currentDate)
         
         return (currentForecasts, hourlyLocationForecasts, dailyLocationForecasts)
     }

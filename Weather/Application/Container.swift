@@ -36,7 +36,9 @@ import Foundation
     }
 
     private func makeResolveLocationForecastUseCase() -> ResolveCurrentLocationForecastsUseCase {
-        DefaultResolveCurrentLocationForecastsUseCase()
+        DefaultResolveCurrentLocationForecastsUseCase(
+            resolveDayForecastUseCase: makeResolveDayForecastUseCase()
+        )
     }
     
     private func makeResolveHourlyLocationForecastsUseCase() -> ResolveHourlyLocationForecastsUseCase {
@@ -44,7 +46,13 @@ import Foundation
     }
     
     private func makeResolveDailyLocationForecastsUseCase() -> ResolveDailyLocationForecastsUseCase {
-        DefaultResolveDailyLocationForecastsUseCase()
+        DefaultResolveDailyLocationForecastsUseCase(
+            resolveDayForecastUseCase: makeResolveDayForecastUseCase()
+        )
+    }
+    
+    private func makeResolveDayForecastUseCase() -> ResolveDayForecastUseCase {
+        DefaultResolveDayForecastUseCase()
     }
     
     private func makeGetForecastsUseCase() -> GetForecastsUseCase {

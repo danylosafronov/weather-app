@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ResolveDailyLocationForecastsUseCase {
-    func invoke(count: Int, from locationForecasts: LocationForecasts) -> LocationForecasts?
+    func invoke(count: Int, from locationForecasts: LocationForecasts, fromDate date: Date) -> LocationForecasts?
 }

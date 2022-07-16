@@ -8,14 +8,17 @@
 import Foundation
 
 struct DefaultResolveCurrentLocationForecastsUseCase: ResolveCurrentLocationForecastsUseCase {
-    func invoke(from locationForecasts: LocationForecasts) -> LocationForecasts? {
-        let forecast = locationForecasts.forecasts.min { $0.timestamp < $1.timestamp }
-        guard let forecast = forecast else { return nil }
+    let resolveDayForecastUseCase: ResolveDayForecastUseCase
+    
+    func invoke(from locationForecasts: LocationForecasts, forDay date: Date) -> LocationForecasts? {
+        guard let dayForecast = resolveDayForecastUseCase.invoke(from: locationForecasts.forecasts, forDay: date) else {
+            return nil
+        }
         
         return LocationForecasts(
             id: UUID(),
             location: locationForecasts.location,
-            forecasts: [forecast]
+            forecasts: [dayForecast]
         )
     }
 }

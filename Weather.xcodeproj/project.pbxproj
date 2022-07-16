@@ -61,6 +61,11 @@
 		B29C922D2879E3BC00A27C73 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C922C2879E3BC00A27C73 /* PersistenceController.swift */; };
 		B29C92302879EB2100A27C73 /* ManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C922F2879EB2100A27C73 /* ManagedObject+Extensions.swift */; };
 		B29C9233287ECF4E00A27C73 /* TimestampFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C9232287ECF4E00A27C73 /* TimestampFormatter.swift */; };
+		B29C9237288308C800A27C73 /* Forecasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C9236288308C800A27C73 /* Forecasts.swift */; };
+		B29C923928830B9B00A27C73 /* ResolveDayForecastsExtremumTemperatureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C923828830B9B00A27C73 /* ResolveDayForecastsExtremumTemperatureUseCase.swift */; };
+		B29C923B28830BA700A27C73 /* DefaultResolveDayForecastsExtremumTemperatureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C923A28830BA700A27C73 /* DefaultResolveDayForecastsExtremumTemperatureUseCase.swift */; };
+		B29C923D28830DD600A27C73 /* ResolveDayForecastUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C923C28830DD600A27C73 /* ResolveDayForecastUseCase.swift */; };
+		B29C923F28830E4100A27C73 /* DefaultResolveDayForecastUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C923E28830E4100A27C73 /* DefaultResolveDayForecastUseCase.swift */; };
 		B2CD859028771DBE00B631DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD858F28771DBE00B631DF /* AppDelegate.swift */; };
 		B2CD859228771DBE00B631DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD859128771DBE00B631DF /* SceneDelegate.swift */; };
 		B2CD859A28771DBE00B631DF /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2CD859828771DBE00B631DF /* Weather.xcdatamodeld */; };
@@ -131,6 +136,11 @@
 		B29C922F2879EB2100A27C73 /* ManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedObject+Extensions.swift"; sourceTree = "<group>"; };
 		B29C9231287A0DCC00A27C73 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B29C9232287ECF4E00A27C73 /* TimestampFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampFormatter.swift; sourceTree = "<group>"; };
+		B29C9236288308C800A27C73 /* Forecasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecasts.swift; sourceTree = "<group>"; };
+		B29C923828830B9B00A27C73 /* ResolveDayForecastsExtremumTemperatureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveDayForecastsExtremumTemperatureUseCase.swift; sourceTree = "<group>"; };
+		B29C923A28830BA700A27C73 /* DefaultResolveDayForecastsExtremumTemperatureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResolveDayForecastsExtremumTemperatureUseCase.swift; sourceTree = "<group>"; };
+		B29C923C28830DD600A27C73 /* ResolveDayForecastUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveDayForecastUseCase.swift; sourceTree = "<group>"; };
+		B29C923E28830E4100A27C73 /* DefaultResolveDayForecastUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResolveDayForecastUseCase.swift; sourceTree = "<group>"; };
 		B2CD858C28771DBE00B631DF /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CD858F28771DBE00B631DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2CD859128771DBE00B631DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,9 +226,11 @@
 				B29C92152879C46E00A27C73 /* Defaults */,
 				B29C92112879BCAF00A27C73 /* GetForecastsUseCase.swift */,
 				B29C91DB2879A73E00A27C73 /* GetLocationForecastsUseCase.swift */,
-				B29C921E2879CC2100A27C73 /* ResolveDailyLocationForecastsUseCase.swift */,
-				B29C921A2879C5D600A27C73 /* ResolveHourlyLocationForecastsUseCase.swift */,
 				B29C92162879C49F00A27C73 /* ResolveCurrentLocationForecastsUseCase.swift */,
+				B29C921E2879CC2100A27C73 /* ResolveDailyLocationForecastsUseCase.swift */,
+				B29C923828830B9B00A27C73 /* ResolveDayForecastsExtremumTemperatureUseCase.swift */,
+				B29C923C28830DD600A27C73 /* ResolveDayForecastUseCase.swift */,
+				B29C921A2879C5D600A27C73 /* ResolveHourlyLocationForecastsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -316,8 +328,10 @@
 				B29C92132879BD2100A27C73 /* DefaultGetForecastsUseCase.swift */,
 				B29C92052879B29700A27C73 /* DefaultGetLocationForecastsUseCase.swift */,
 				B29C92182879C4B700A27C73 /* DefaultResolveCurrentLocationForecastsUseCase.swift */,
-				B29C921C2879C62700A27C73 /* DefaultResolveHourlyLocationForecastsUseCase.swift */,
 				B29C92202879CC4D00A27C73 /* DefaultResolveDailyLocationForecastsUseCase.swift */,
+				B29C923A28830BA700A27C73 /* DefaultResolveDayForecastsExtremumTemperatureUseCase.swift */,
+				B29C923E28830E4100A27C73 /* DefaultResolveDayForecastUseCase.swift */,
+				B29C921C2879C62700A27C73 /* DefaultResolveHourlyLocationForecastsUseCase.swift */,
 			);
 			path = Defaults;
 			sourceTree = "<group>";
@@ -508,6 +522,7 @@
 				B29C92242879D8E000A27C73 /* ForecastCondition.swift */,
 				B29C91A228782B3000A27C73 /* Location.swift */,
 				B29C91E02879A92700A27C73 /* LocationForecasts.swift */,
+				B29C9236288308C800A27C73 /* Forecasts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -583,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2CD85B328771F1400B631DF /* WeatherView.swift in Sources */,
+				B29C923B28830BA700A27C73 /* DefaultResolveDayForecastsExtremumTemperatureUseCase.swift in Sources */,
 				B2CD859A28771DBE00B631DF /* Weather.xcdatamodeld in Sources */,
 				B29C92292879E23B00A27C73 /* ForecastCacheDataSource.swift in Sources */,
 				B29C92122879BCAF00A27C73 /* GetForecastsUseCase.swift in Sources */,
@@ -593,16 +609,20 @@
 				B2CD85C0287756AA00B631DF /* UICollectionView+Extensions.swift in Sources */,
 				B2CD85B8287728EF00B631DF /* CurrentWeatherView.swift in Sources */,
 				B29C91A92878345000A27C73 /* ElementKind.swift in Sources */,
+				B29C923F28830E4100A27C73 /* DefaultResolveDayForecastUseCase.swift in Sources */,
 				B29C920A2879B3C000A27C73 /* Configuration.swift in Sources */,
 				B29C92232879D63F00A27C73 /* OWeatherConditionCode.swift in Sources */,
 				B2CD85C728775F5400B631DF /* CurrentWeatherCollectionViewCell.swift in Sources */,
+				B29C923D28830DD600A27C73 /* ResolveDayForecastUseCase.swift in Sources */,
 				B29C91FE2879AE4400A27C73 /* OWeatherForecastMain.swift in Sources */,
 				B29C91DF2879A80C00A27C73 /* ForecastRepository.swift in Sources */,
 				B29C922B2879E2E300A27C73 /* DefaultForecastCacheDataSource.swift in Sources */,
 				B29C92212879CC4D00A27C73 /* DefaultResolveDailyLocationForecastsUseCase.swift in Sources */,
 				B29C91DC2879A73E00A27C73 /* GetLocationForecastsUseCase.swift in Sources */,
 				B29C92082879B36F00A27C73 /* Container.swift in Sources */,
+				B29C9237288308C800A27C73 /* Forecasts.swift in Sources */,
 				B29C91EF2879AB7E00A27C73 /* OWeather.swift in Sources */,
+				B29C923928830B9B00A27C73 /* ResolveDayForecastsExtremumTemperatureUseCase.swift in Sources */,
 				B29C922D2879E3BC00A27C73 /* PersistenceController.swift in Sources */,
 				B29C92192879C4B700A27C73 /* DefaultResolveCurrentLocationForecastsUseCase.swift in Sources */,
 				B29C92302879EB2100A27C73 /* ManagedObject+Extensions.swift in Sources */,
